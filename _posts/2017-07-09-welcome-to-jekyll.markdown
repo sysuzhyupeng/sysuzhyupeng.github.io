@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Welcome to sysuzhyupeng's blog!"
 date:   2017-07-09 22:05:58 +0800
 categories: jekyll update
 ---
