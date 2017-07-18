@@ -1,39 +1,11 @@
-# Site settings
-name: sysuzhyupeng的博客
-email: 67334197@qq.com
-author: sysuzhyupeng
-url: http://blog.csdn.net/sysuzhyupeng
-friend_site: http://blog.csdn.net/sysuzhyupeng
-github: https://github.com/sysuzhyupeng/
-baseurl: ""
-description: 欢迎来到张煜鹏的博客!
-meta_description: 张煜鹏的博客
-motto: 
-banner: 
+auto: true
 
-#permalink: /:categories/:year/:month/:day/:title/
-permalink: /:year/:month/:day/:title/
-paginate: 10
+#markdown: rdiscount
+highlighter: 'pygments'
+#paginate: 8
+permalink: /:title
 
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
-
-github_username: sysuzhyupeng
-highlighter: Pygments
-
-# Build settings
-markdown: kramdown
-
-baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
-
-FB:
-  comments :
-    provider : sysuzhyupeng
-    duoshuo:
-        short_name : sysuzhyupeng
-    disqus :
-        short_name : sysuzhyupeng
-    # facebook :
-    #   appid : 123
-    #   num_posts: 5
-    #   width: 580
-    #   colorscheme: light
+title: 张煜鹏的博客
+url: http://sysuzhyupeng.github.io
+feed: /atom.xml
+author_info: <a href="https://sysuzhyupeng.github.io/">sysuzhyupeng</a>
