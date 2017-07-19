@@ -16,7 +16,7 @@
     })();
     </script>
     <meta charset="utf-8" />
-    <title>新博客来啦！！ | 张煜鹏的博客</title>
+    <title>编程语言实现模式(1) | 张煜鹏的博客</title>
     <meta name="author" content="Mukosame" />
     <meta name="renderer" content="webkit">
     <meta name="description" content="Everything about Mukosame" />
@@ -52,14 +52,23 @@
 
 <div id="content">
     <div class="entry">
-        <h1 class="entry-title"><a href="/new-blog" title="新博客来啦！！">新博客来啦！！</a></h1>
-        <p class="entry-date">2017-07-18</p>
-        <p>2017年7月以前的博客：<a href="http://blog.csdn.net/sysuzhyupeng" title="old blog">old blog</a></p>
+        <h1 class="entry-title"><a href="/language-implementation-patterns" title="编程语言实现模式(1)">编程语言实现模式(1)</a></h1>
+        <p class="entry-date">2017-07-19</p>
+        <h2 id="语言读取">语言读取</h2>
+<p>语言读取是这样一个过程：文件读取部分对输入内容进行“识别”，并输出数据结构作为中间表示(intermediate representation，IR)，供其他部件使用。流水线的末端是生成器，会根据IR及之前收集信息进行计算，并输出最终结果。</p>
 
-<p>这是我的github: <a href="https://github.com/sysuzhyupeng" title="github">github</a></p>
+<p>把输入内容用IR的形式放到内存以后，就可以从中抽取信息或者修改它，第一步要做的就是<code>遍历IR</code>。要想输出有用的输出结果，就必须<code>分析输入内容</code>，对于一个字符x，我们需要知道它是一个变量，还是一个方法，要知道它的类型以及定义位置。</p>
 
-<p>谢谢大家的支持，我会更加努力。</p>
+<h2 id="识别式子结构">识别式子结构</h2>
+<p> 例如，<code>return x+1</code>这个由词法单元组成的小式子就是表达式。我们可以把x+1看做一个<code>expr</code>，整个return语句归类为一个<code>returnstat</code>，同时语句也是一个<code>stat</code>。将其翻转，就能得到解析树。</p>
 
+<h2 id="构建递归下降语法解析器">构建递归下降语法解析器</h2>
+<p> 解析器用来解析识别的解析树，解析器不必构造具体的解析树，因为只要为解析中的指定子结构(树的内节点)编写专用的函数，就能得到解析树的信息。</p>
+<pre><code class="language-javascript">  //对于return x + 1
+  void stat(){ returnstat() };
+  void returnstat(){ match("return"); expr(); match(";"); }
+  void expr(){ match("x");match("+");match("1"); }
+</code></pre>
 
     </div>
 
