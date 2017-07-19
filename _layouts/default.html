@@ -49,6 +49,18 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
           })();
+
+        $.$.ajax({
+            url: 'https://api.baidu.com/json/tongji/v1/ReportService/getData',
+            type: 'GET',
+            // dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+            // data: {param1: 'value1'},
+        })
+        .done(function(res) {
+            console.log("success", res);
+        })
+        
+
         $(function(){
             $('.home-follow').click(function(e){
                 e.preventDefault();
