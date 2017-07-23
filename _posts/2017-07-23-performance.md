@@ -23,6 +23,7 @@ category: blog
 -
   对于网页高度小于屏幕的网站来说，统计首屏时间非常的简单，因为我们已经可以从performance中得到渲染开始时`performance.timing.navigationStart`，只要在页面底部加上脚本打印当前时间即可（比如`http://localhost:8091/?action=speedlog`）。</br>
     
+    
 使用缓存优化
 -
   除了304缓存之外，如果html/css/js一直不变，可以考虑直接缓存到客户端。我们把不变的js/css/html存储到`localstorage`中去，下次加载首页的时候。在特定的位置，不必再从服务端请求。我们在写入localstorage的时候，同时在cookie中种下当前所有要缓存的内容的版本(`MD5戳`)就可以。如果cookie中有version，证明种过cookie，写过local，所以，不用传内容了，直接传script就好了，如果没有就要传输并且写入。
