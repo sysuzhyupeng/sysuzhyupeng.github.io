@@ -25,3 +25,15 @@ category: blog
 如何统计首屏时间
 -
   对于网页高度小于屏幕的网站来说，统计首屏时间非常的简单，因为我们已经可以从performance中得到渲染开始时间`performance.timing.navigationStart`，只要在页面底部加上脚本打印当前时间即可（比如`http://localhost:8091/?action=speedlog`）
+  
+使用缓存优化
+-
+  除了304缓存之外，如果html/css/js一直不变，可以考虑直接缓存到客户端。我们把不变的js/css/html存储到`localstorage`中去，下次加载首页的时候。在特定的位置，不必再从服务端请求。我们在写入localstorage的时候，同时在cookie中种下当前所有要缓存的内容的版本(`MD5戳`)就可以。如果cookie中有version，证明种过cookie，写过local，所以，不用传内容了，直接传script就好了，如果没有就要传输并且写入。
+
+使用iconfont
+-
+  如果有一些业务不需要多彩色图的时候，iconfont就派上了用场，在满足UE高清的需求下，可以节省大量的资源。
+  
+极小的图片base64化
+-
+  对于小于1k的图片，我们将其变为base64编码，并融入到css中，一起换存到localstorage中去，这样即节省了网络请求，同时使图片也可以缓存到local中去了。
