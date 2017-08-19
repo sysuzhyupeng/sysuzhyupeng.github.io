@@ -21,7 +21,7 @@ category: blog
   
 如何统计首屏时间
 -
-  对于网页高度小于屏幕的网站来说，统计首屏时间非常的简单，因为我们已经可以从performance中得到渲染开始时`performance.timing.navigationStart`，只要在页面底部加上脚本打印当前时间即可（比如`http://localhost:8091/?action=speedlog`）。</br>
+  对于网页高度小于屏幕的网站来说，统计首屏时间非常的简单，因为我们已经可以从performance中得到渲染开始时`performance.timing.navigationStart`，只要在页面底部加上脚本打印当前时间即可（比如`http://localhost:8091/?action=speedlog`）。
     
     
 使用缓存优化
