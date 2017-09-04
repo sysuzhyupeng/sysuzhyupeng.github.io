@@ -1,6 +1,6 @@
 # blog
 
-旧博客地址：http://blog.csdn.net/sysuzhyupeng
+2017年6月以前博客地址：http://blog.csdn.net/sysuzhyupeng
 
 ------------------------------------
 
